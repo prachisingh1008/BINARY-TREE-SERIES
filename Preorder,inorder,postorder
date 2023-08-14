@@ -1,0 +1,112 @@
+1) PREORDER
+void pre(Node* root, vector<int>& v) {
+    if (root == NULL)
+        return;
+
+    v.push_back(root->data); // Push the current node's data
+
+    pre(root->left, v); // Recurse on the left subtree
+    pre(root->right, v); // Recurse on the right subtree
+}
+
+vector<int> preorder(Node* root) {
+    vector<int> v;
+    pre(root, v); // Call the recursive function
+    return v;
+}
+
+Given a binary tree, find its preorder traversal.
+
+Example 1:
+
+Input:
+        1      
+      /          
+    4    
+  /    \   
+4       2
+Output: 1 4 4 2 
+
+2) INORDER
+class Solution {
+  public:
+    // Function to return a list containing the inorder traversal of the tree.
+    
+    void in(Node* root, vector<int>& v) {
+    if (root == NULL)
+        return;
+
+    // Push the current node's data
+
+    in(root->left, v); 
+    v.push_back(root->data); // Recurse on the left subtree
+    in(root->right, v);
+    // Recurse on the right subtree
+}
+
+vector<int> inOrder(Node* root) {
+    vector<int> v;
+    in(root, v); // Call the recursive function
+    return v;
+}
+
+
+};
+
+Given a Binary Tree, find the In-Order Traversal of it.
+
+Example 1:
+
+Input:
+       1
+     /  \
+    3    2
+Output: 3 1 2
+
+3) POSTORDER
+void post(Node* root, vector<int>& v) {
+    if (root == NULL)
+        return;
+
+    // Push the current node's data
+
+    post(root->left, v); // Recurse on the left subtree
+    post(root->right, v);
+    v.push_back(root->data); // Recurse on the right subtree
+}
+
+vector<int> postOrder(Node* root) {
+    vector<int> v;
+    post(root, v); // Call the recursive function
+    return v;
+}
+
+Given a binary tree, find the Postorder Traversal of it.
+For Example, the postorder traversal of the following tree is:
+5 10 39 1
+
+        1
+     /     \
+   10     39
+  /
+5
+
+
+Example 1:
+
+Input:
+        19
+     /     \
+    10      8
+  /    \
+ 11    13
+Output: 11 13 10 8 19
+Example 2:
+
+Input:
+          11
+         /
+       15
+      /
+     7
+Output: 7 15 11
